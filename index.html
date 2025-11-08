@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ayush Kumar Singh — Social Media Manager</title>
+  <meta name="description" content="Portfolio site for a Social Media Manager — services, work, and contact." />
+  <style>
+    :root{
+      --bg:#0b0f14;
+      --card:#111823;
+      --text:#e9eef5;
+      --muted:#9fb0c6;
+      --brand:#6ee7ff;
+      --brand-2:#9b8cff;
+      --ring: 0 0 0 3px rgba(110,231,255,.35);
+      --radius: 18px;
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,'Helvetica Neue',Arial,'Noto Sans',sans-serif;background:linear-gradient(180deg,var(--bg),#0d1219 35%, #0b0f14 100%);color:var(--text)}
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+    .container{max-width:1100px;margin:0 auto;padding:0 20px}
+    header{position:sticky;top:0;z-index:50;background:rgba(11,15,20,.65);backdrop-filter:saturate(140%) blur(10px);border-bottom:1px solid rgba(255,255,255,.06)}
+    .nav{display:flex;align-items:center;justify-content:space-between;height:68px}
+    .brand{display:flex;align-items:center;gap:12px;font-weight:800;letter-spacing:.3px}
+    .logo{width:34px;height:34px;border-radius:10px;background:linear-gradient(135deg,var(--brand),var(--brand-2));box-shadow:0 6px 18px rgba(155,140,255,.4)}
+    .menu{display:flex;gap:22px}
+    .menu a{opacity:.85}
+    .menu a:hover{opacity:1}
+    .cta{padding:10px 16px;border-radius:12px;background:linear-gradient(135deg,var(--brand),var(--brand-2));color:#0b0f14;font-weight:700}
+    .hamburger{display:none;height:36px;width:36px;border-radius:10px;border:1px solid rgba(255,255,255,.08);align-items:center;justify-content:center}
+    .hero{padding:70px 0 30px}
+    .hero-wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:28px;align-items:center}
+    .pill{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(255,255,255,.12);border-radius:999px;padding:6px 12px;color:var(--muted)}
+    .pill b{color:var(--text)}
+    h1{font-size:clamp(32px,5vw,52px);line-height:1.05;margin:14px 0}
+    .lead{font-size:clamp(16px,2.2vw,19px);color:var(--muted);max-width:54ch}
+    .hero-cta{margin-top:22px;display:flex;gap:12px;flex-wrap:wrap}
+    .btn{padding:12px 18px;border-radius:14px;border:1px solid rgba(255,255,255,.12);font-weight:700}
+    .btn.primary{background:linear-gradient(135deg,var(--brand),var(--brand-2));color:#0b0f14;border:none}
+    .stats{margin-top:26px;display:flex;gap:22px;color:var(--muted)}
+    .stat b{display:block;color:var(--text);font-size:20px}
+    .hero-card{background:radial-gradient(1200px 400px at 60% -20%, rgba(110,231,255,.15), transparent 50%),var(--card);border:1px solid rgba(255,255,255,.08);border-radius:var(--radius);box-shadow:var(--shadow);padding:22px}
+    .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+    .mini{background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.06);border-radius:16px;padding:16px}
+    .mini h3{margin:0 0 6px;font-size:15px;opacity:.9}
+    .mini p{margin:0;color:var(--muted);font-size:14px}
+    section{padding:64px 0}
+    .section-head{display:flex;align-items:end;justify-content:space-between;margin-bottom:20px}
+    .section-head h2{font-size:28px;margin:0}
+    .section-head p{color:var(--muted);max-width:60ch}
+    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .card{background:var(--card);border:1px solid rgba(255,255,255,.08);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow)}
+    .card h3{margin:8px 0}
+    .chip{display:inline-block;padding:6px 10px;border-radius:999px;background:rgba(110,231,255,.1);border:1px solid rgba(110,231,255,.35);font-size:12px}
+    .post{display:flex;gap:14px}
+    .post img{width:110px;height:74px;object-fit:cover;border-radius:12px;border:1px solid rgba(255,255,255,.08)}
+    form{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    form input, form textarea{width:100%;padding:12px 14px;border-radius:12px;border:1px solid rgba(255,255,255,.12);background:#0e141d;color:var(--text)}
+    form textarea{grid-column:1/-1;min-height:120px;resize:vertical}
+    form button{justify-self:start}
+    input:focus, textarea:focus{outline:none;box-shadow:var(--ring)}
+    footer{padding:30px 0;color:var(--muted);border-top:1px solid rgba(255,255,255,.06)}
+    @media (max-width: 900px){
+      .hero-wrap{grid-template-columns:1fr}
+      .grid{grid-template-columns:1fr}
+      .cards{grid-template-columns:1fr 1fr}
+      .menu{display:none}
+      .hamburger{display:flex}
+    }
+    @media (max-width: 620px){
+      .cards{grid-template-columns:1fr}
+      .stats{flex-direction:column}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a class="brand" href="#top">
+        <span class="logo"></span>
+        <span>Ayush K. Singh • SMM</span>
+      </a>
+      <nav class="menu" id="menu">
+        <a href="#services">Services</a>
+        <a href="#work">Case Studies</a>
+        <a href="#blog">Blog</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#faqs">FAQs</a>
+        <a href="#contact" class="cta">Contact</a>
+      </nav>
+      <button class="hamburger" aria-label="Toggle menu" onclick="toggleMenu()">☰</button>
+    </div>
+  </header>
+
+  <main id="top" class="container">
+    <section class="hero">
+      <div class="hero-wrap">
+        <div>
+          <span class="pill">📈 <b>Social growth</b> without the guesswork</span>
+          <h1>Hi, I'm Ayush Kumar Singh — a Social Media Manager helping brands grow with content that converts.</h1>
+          <p class="lead">I plan, write and publish daily posts, threads and blogs — then measure what works. Let’s build your presence across Instagram, X (Twitter), LinkedIn and a slick WordPress blog.</p>
+          <div class="hero-cta">
+            <a class="btn primary" href="#contact">Get a proposal</a>
+            <a class="btn" href="#work">See results</a>
+          </div>
+          <div class="stats">
+            <div class="stat"><b>+2.3M</b> Monthly Impressions</div>
+            <div class="stat"><b>4.9★</b> Client Rating</div>
+            <div class="stat"><b>35%</b> Avg. CTR lift</div>
+          </div>
+        </div>
+        <aside class="hero-card">
+          <div class="grid">
+            <div class="mini">
+              <h3>Content Calendar</h3>
+              <p>30‑day plan with hooks, captions and assets.</p>
+            </div>
+            <div class="mini">
+              <h3>Daily Posting</h3>
+              <p>Cross‑platform scheduling and community replies.</p>
+            </div>
+            <div class="mini">
+              <h3>Blog & SEO</h3>
+              <p>WordPress setup, keyword research, on‑page SEO.</p>
+            </div>
+            <div class="mini">
+              <h3>Analytics</h3>
+              <p>UTM tracking, weekly reports, experiments.</p>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="section-head">
+        <h2>Services</h2>
+        <p>Pick what you need now — add more later. Simple monthly pricing and clear deliverables.</p>
+      </div>
+      <div class="cards">
+        <div class="card">
+          <span class="chip">Starter</span>
+          <h3>Platform Setup & Audit</h3>
+          <p class="muted">Profile revamp, brand kit, bio + link‑in‑bio, competitor scan, baseline metrics.</p>
+        </div>
+        <div class="card">
+          <span class="chip">Core</span>
+          <h3>Daily Social Management</h3>
+          <p>Research, write and schedule posts with asset design, comments & DM triage.</p>
+        </div>
+        <div class="card">
+          <span class="chip">Pro</span>
+          <h3>Blog + SEO Bundle</h3>
+          <p>WordPress blog, 4 posts/month, internal linking, technical basics and speed tweaks.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="work">
+      <div class="section-head">
+        <h2>Portfolio & Case Studies</h2>
+        <p>Realistic placeholder stats — replace with your own when you’re ready.</p>
+      </div>
+      <div class="cards">
+        <article class="card">
+          <h3>Fintech SaaS</h3>
+          <p>90‑day growth sprint: +78% followers, +2.4× engagement, launched thought‑leadership blog.</p>
+        </article>
+        <article class="card">
+          <h3>D2C Wellness</h3>
+          <p>UGC‑led content calendar; Instagram reach +130%, email list +8k via blog lead magnets.</p>
+        </article>
+        <article class="card">
+          <h3>EdTech</h3>
+          <p>Twitter/X threads with visuals; 3 viral posts (>250k views), signups +22% MoM.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="blog">
+      <div class="section-head">
+        <h2>From the Blog</h2>
+        <p>Sample articles to demonstrate layout. Connect a real WordPress later and surface latest posts.</p>
+      </div>
+      <div class="cards">
+        <a class="card post" href="#">
+          <img alt="post thumb" src="https://images.unsplash.com/photo-1556157382-97eda2d62296?q=80&w=600&auto=format&fit=crop"/>
+          <div>
+            <h3>Hook Formulas that Actually Work in 2025</h3>
+            <p class="muted">Steal‑ready templates for short‑form intros that boost retention.</p>
+          </div>
+        </a>
+        <a class="card post" href="#">
+          <img alt="post thumb" src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=600&auto=format&fit=crop"/>
+          <div>
+            <h3>Zero‑Friction WordPress Setup Checklist</h3>
+            <p class="muted">From hosting to security and speed — the fast path.</p>
+          </div>
+        </a>
+        <a class="card post" href="#">
+          <img alt="post thumb" src="https://images.unsplash.com/photo-1492724441997-5dc865305da7?q=80&w=600&auto=format&fit=crop"/>
+          <div>
+            <h3>Repurposing: 1 Idea → 10 Posts</h3>
+            <p class="muted">A practical system to scale content without burnout.</p>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <section id="pricing">
+      <div class="section-head">
+        <h2>Pricing</h2>
+        <p>Transparent monthly packages. Custom bundles available on request.</p>
+      </div>
+      <div class="cards">
+        <div class="card">
+          <span class="chip">₹14,999 / mo</span>
+          <h3>Starter</h3>
+          <p>1 platform • 12 posts/mo • basic graphics • monthly report • email support.</p>
+        </div>
+        <div class="card">
+          <span class="chip">₹29,999 / mo</span>
+          <h3>Growth</h3>
+          <p>2 platforms • 24 posts/mo • community replies • 2 blogs/mo • weekly report.</p>
+        </div>
+        <div class="card">
+          <span class="chip">₹49,999 / mo</span>
+          <h3>Scale</h3>
+          <p>3+ platforms • daily posts • 4 blogs/mo • paid ads setup • strategy workshop.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="faqs">
+      <div class="section-head">
+        <h2>FAQs</h2>
+        <p>Quick answers. Ask anything else in the contact form below.</p>
+      </div>
+      <div class="cards">
+        <div class="card">
+          <h3>Which platforms do you cover?</h3>
+          <p>Instagram, X (Twitter), LinkedIn, Facebook, and WordPress for blogging.</p>
+        </div>
+        <div class="card">
+          <h3>Do you provide designs?</h3>
+          <p>Yes — post graphics, carousels, simple reels and thumbnails using your brand kit.</p>
+        </div>
+        <div class="card">
+          <h3>How soon can we start?</h3>
+          <p>Usually within 3–5 days after a quick kickoff call and access to your accounts.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="section-head">
+        <h2>Let’s Work Together</h2>
+        <p>Tell me about your goals and I’ll reply with a short plan + pricing.</p>
+      </div>
+      <div class="card">
+        <form onsubmit="event.preventDefault(); alert('Thanks! I\'ll get back to you within 24 hours.'); this.reset();">
+          <input type="text" placeholder="Your name" required>
+          <input type="email" placeholder="Email" required>
+          <textarea placeholder="What do you want to achieve? (e.g., grow IG to 10k, start a blog, daily posts on X)"></textarea>
+          <button class="btn primary" type="submit">Send Message</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      © <span id="y"></span> Ayush Kumar Singh — Social Media Manager · <a href="#top">Back to top</a>
+    </div>
+  </footer>
+
+  <script>
+    function toggleMenu(){
+      const m = document.getElementById('menu');
+      if(getComputedStyle(m).display==='none'){ m.style.display='flex'; m.style.flexDirection='column'; m.style.gap='10px'; }
+      else{ m.style.display='none'; }
+    }
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
